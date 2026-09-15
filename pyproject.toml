@@ -1,0 +1,29 @@
+[project]
+name = "building-with-the-claude-api"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic",
+    "python-dotenv"
+]
+
+[toml.ruff]
+target-version = "py313"
+line-length = 100
+
+exclude = [
+    ".git",
+    "site-packages",
+    ".venv",
+    ".vscode"
+]
+
+[tool.ruff.lint]
+ignore = []
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "single"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
