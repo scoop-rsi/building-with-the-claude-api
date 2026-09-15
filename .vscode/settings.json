@@ -1,3 +1,5 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "github.copilot.chat.agent.autoRefresh": false,
+    "github.copilot.chat.agent.keepAlive": false
 }

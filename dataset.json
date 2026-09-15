@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Parse an AWS CloudWatch log entry and extract the timestamp, log level, and message. The log format is: '[TIMESTAMP] [LEVEL] Message text'",
+    "format": "regex",
+    "solution_criteria": "The regex should correctly capture three groups: timestamp (ISO 8601 format), log level (ERROR, WARN, INFO, DEBUG), and the message content. Should work with logs like '[2024-01-15T10:30:45Z] [ERROR] Connection timeout'"
+  },
+  {
+    "task": "Write a Python function that takes an AWS S3 bucket name and returns a CloudFormation-compatible resource definition for that bucket with versioning enabled and block public access settings.",
+    "format": "python",
+    "solution_criteria": "Function should return a valid dictionary/JSON-serializable object representing an AWS::S3::Bucket CloudFormation resource with VersioningConfiguration and PublicAccessBlockConfiguration properties properly configured"
+  },
+  {
+    "task": "Create a JSON policy document for an AWS IAM role that allows read-only access to a specific DynamoDB table named 'UserProfiles'.",
+    "format": "json",
+    "solution_criteria": "Valid IAM policy JSON with Statement array containing appropriate Action, Effect, and Resource fields. Should include dynamodb:GetItem, dynamodb:Query, and dynamodb:Scan actions restricted to the 'UserProfiles' table ARN"
+  }
+]

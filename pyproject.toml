@@ -7,7 +7,7 @@ dependencies = [
     "python-dotenv"
 ]
 
-[toml.ruff]
+[tool.ruff]
 target-version = "py313"
 line-length = 100
 
@@ -15,7 +15,8 @@ exclude = [
     ".git",
     "site-packages",
     ".venv",
-    ".vscode"
+    ".vscode",
+    "*.ipynb"
 ]
 
 [tool.ruff.lint]
