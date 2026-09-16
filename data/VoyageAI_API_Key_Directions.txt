@@ -1,0 +1,27 @@
+‭Getting an API Key from VoyageAI‬
+
+‭Step 1:‬‭Sign up to VoyageAI‬
+‭ .‬ ‭Navigate to‬‭https://www.voyageai.com/‬
+1
+‭2.‬ ‭Click on the Login button in the top right corner‬
+
+‭3.‬ ‭Create an account‬
+
+‭Step 2:‬‭Create an API key‬
+‭1.‬‭Once logged in, find the ‘API Keys’ section on the left nav‬
+‭bar‬
+
+‭2.‬‭Click the ‘Create new secret key button’‬
+
+‭3.‬‭Enter a key name of “Test Key” then click ‘Create secret‬
+‭key’‬
+
+‭4.‬‭Copy the key‬
+
+‭Step 3:‬‭Add the key to your “.env” file‬
+‭1.‬‭In your editor, find your “.env” file that’s next to your‬
+‭notebook.‬
+‭2.‬‭Add in your api key, assigning it to a variable named‬
+‭exactly‬‭“VOYAGE_API_KEY”‬
+
+
