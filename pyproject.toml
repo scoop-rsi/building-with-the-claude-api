@@ -28,3 +28,9 @@ docstring-quotes = "single"
 [tool.ruff.format]
 quote-style = "single"
 indent-style = "space"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "notebook>=7.6.2",
+]
