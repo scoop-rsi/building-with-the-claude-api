@@ -1,0 +1,262 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">4</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.0 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with an interdisciplinary passage containing mixed topics (e.g., environmental science + economics) to verify the prompt can identify and separate distinct subject areas</td>
+                <td class="prompt-inputs"><strong>content:</strong> The integration of wetland restoration with market-based conservation mechanisms presents novel pathways for addressing both ecological degradation and rural economic development. Restored wetlands sequester carbon at rates of 1.5 tonnes per hectare annually, contributing substantially to climate change mitigation targets, while simultaneously providing ecosystem services valued at $8,000-$15,000 per hectare per year through water purification and flood regulation. Economic modeling demonstrates that wetland carbon credits, trading at $20-$30 per tonne in emerging carbon markets, generate sufficient revenue streams to incentivize farmer participation, creating 2.3 jobs per 100 hectares in wetland management and monitoring. However, regulatory frameworks governing wetland mitigation banking and carbon accounting standards remain fragmented across jurisdictions, creating uncertainty for investors and limiting scalability of these nature-based solutions in agricultural watersheds.</td>
+                <td class="criteria">• Identifies and separates at least three distinct disciplinary topics (e.g., ecology, economics, policy/regulation)<br>• Captures both natural science and social science domains present in the passage<br>• Returns topics as a valid JSON array of strings</td>
+                <td class="output"><pre>```json
+[
+  "wetland restoration",
+  "market-based conservation",
+  "carbon sequestration",
+  "climate change mitigation",
+  "ecosystem services",
+  "water purification",
+  "flood regulation",
+  "carbon credits",
+  "carbon markets",
+  "rural economic development",
+  "farmer participation",
+  "wetland management",
+  "mitigation banking",
+  "carbon accounting",
+  "regulatory frameworks",
+  "agricultural watersheds",
+  "nature-based solutions"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">10</span></td>
+                <td class="reasoning">The solution fully satisfies all mandatory requirements: it contains a valid JSON array of strings, each entry is a clean topic without commentary, and the response is only the JSON array. It exceeds the secondary criteria by identifying clear topics from three distinct disciplinary domains (ecology, economics, and policy/regulation) and capturing both natural and social science content. The extraction is thorough and accurate to the passage content. The minor redundancies noted do not constitute failures of the stated criteria, as the task does not explicitly require de-duplication of related concepts.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with highly technical jargon-heavy text from a specialized field (e.g., quantum physics or genomics) to determine if the prompt accurately recognizes domain-specific terminology as valid topics</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in CRISPR-Cas9 gene editing have demonstrated unprecedented efficacy in correcting pathogenic variants associated with autosomal recessive disorders. The mechanism involves RNA-guided endonuclease activity targeting specific genomic loci, with off-target effects mitigated through high-fidelity Cas9 variants and optimized sgRNA design. Multiplex editing strategies employing dual guide RNAs have achieved simultaneous correction of allelic heterogeneity in patient-derived induced pluripotent stem cells (iPSCs), with subsequent phenotypic rescue verified through transcriptomic profiling and functional assays. Integration of base editors circumvents double-strand break formation, enabling precise C-to-T and A-to-G transversions in non-dividing hepatocytes via adeno-associated viral vectors, though immunogenicity of AAV capsid proteins and hepatotoxicity remain critical translational barriers.</td>
+                <td class="criteria">• Extracts specialized genomics and molecular biology terminology as valid topics (e.g., CRISPR-Cas9, gene editing, autosomal recessive disorders, iPSCs, base editors)<br>• Identifies technical jargon and domain-specific concepts as distinct topics (e.g., off-target effects, sgRNA design, transcriptomic profiling, adeno-associated viral vectors)<br>• Returns output as a JSON array of strings<br>• Does not exclude topics merely because they contain complex scientific language</td>
+                <td class="output"><pre>```json
+{
+  "topics": [
+    "CRISPR-Cas9 gene editing",
+    "Autosomal recessive disorders",
+    "RNA-guided endonuclease",
+    "Off-target effects",
+    "High-fidelity Cas9 variants",
+    "Single guide RNA (sgRNA) design",
+    "Multiplex editing",
+    "Allelic heterogeneity",
+    "Induced pluripotent stem cells (iPSCs)",
+    "Transcriptomic profiling",
+    "Functional assays",
+    "Base editors",
+    "Double-strand breaks",
+    "C-to-T transversions",
+    "A-to-G transversions",
+    "Hepatocytes",
+    "Adeno-associated viral vectors (AAV)",
+    "AAV immunogenicity",
+    "Hepatotoxicity"
+  ]
+}
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it contains a valid JSON array of strings, each string is a topic without extra commentary, and the response is JSON only. The secondary criteria are largely satisfied - the solution appropriately extracts specialized genomics terminology and technical jargon without exclusion based on complexity. However, the extraction is not exhaustive; several concepts mentioned in the text are omitted (pathogenic variants, genomic loci, phenotypic rescue, dual guide RNAs). While the solution captures the major topics effectively, the incompleteness prevents a higher score despite meeting all mandatory requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a passage containing implicit vs. explicit topics to assess whether the prompt extracts only surface-level topics or also identifies underlying themes and concepts</td>
+                <td class="prompt-inputs"><strong>content:</strong> Recent advances in cognitive linguistics have demonstrated that metaphorical language processing involves the same neural substrates as literal comprehension, challenging the traditional view that figurative speech requires a separate interpretive mechanism. When speakers describe emotions as physical sensations—'I was burning with anger' or 'grief weighed heavily on me'—neuroimaging reveals activation patterns indistinguishable from those observed during discussions of actual temperature or mass. This empirical finding suggests that conceptual metaphor theory, which posits that abstract domains are systematically structured through mappings onto concrete domains, may reflect fundamental properties of human cognition rather than merely stylistic conventions. Furthermore, cross-linguistic studies reveal that these metaphorical patterns show remarkable consistency across typologically diverse languages, implying evolutionary constraints on how humans conceptualize and communicate abstract phenomena.</td>
+                <td class="criteria">• Extracts explicit topics (e.g., 'cognitive linguistics', 'metaphorical language', 'neuroimaging')<br>• Identifies implicit underlying themes (e.g., 'mind-body relationship', 'universal human cognition', 'embodied cognition')<br>• Distinguishes between surface-level concepts and deeper theoretical frameworks being discussed</td>
+                <td class="output"><pre>```json
+[
+  "cognitive linguistics",
+  "metaphorical language processing",
+  "neural substrates",
+  "literal comprehension",
+  "figurative speech",
+  "conceptual metaphor theory",
+  "abstract domains",
+  "concrete domains",
+  "neuroimaging",
+  "cross-linguistic studies",
+  "human cognition",
+  "evolutionary constraints",
+  "emotional language",
+  "language universals"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution successfully meets all mandatory requirements with a properly formatted JSON array of clean topic strings. It demonstrates strong performance on explicit topic extraction and captures several implicit themes like 'human cognition' and 'evolutionary constraints'. However, the solution falls short on the secondary criteria by missing some deeper theoretical frameworks that are central to the passage. The passage fundamentally discusses how metaphorical processing reveals embodied cognition and the neural basis of language understanding, yet these frameworks are not captured. While 'neural substrates' is present, the broader implicit theme of embodied cognition—essential to understanding the passage's argument—is absent. The inclusion of 'emotional language' is minor and somewhat tangential. These deficiencies prevent a higher score, though the solution remains competent overall.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a short, focused passage versus a longer multi-paragraph excerpt to evaluate how the prompt handles scope and whether output quality/quantity scales appropriately with input length</td>
+                <td class="prompt-inputs"><strong>content:</strong> This study examines the efficacy of machine learning algorithms in predicting cardiovascular disease risk. We analyzed 15,000 patient records using logistic regression, random forests, and neural network models. Our results demonstrate that ensemble methods achieved 94% accuracy in identifying high-risk patients. Furthermore, we integrated genomic data with clinical variables, which improved predictive performance by 12%. The interpretability of model predictions was enhanced through SHAP analysis, revealing that age, cholesterol levels, and smoking status were the most influential features. These findings suggest that AI-driven risk stratification could significantly improve clinical decision-making and resource allocation in preventive cardiology.</td>
+                <td class="criteria">• Extracts all major topics discussed in the passage as distinct items<br>• Topics are appropriately scoped (neither overly granular nor overly broad)<br>• Output is valid JSON array of strings with no missing or duplicate entries</td>
+                <td class="output"><pre>```json
+[
+  "machine learning algorithms",
+  "cardiovascular disease risk prediction",
+  "logistic regression",
+  "random forests",
+  "neural networks",
+  "ensemble methods",
+  "patient risk stratification",
+  "genomic data integration",
+  "clinical variables",
+  "model interpretability",
+  "SHAP analysis",
+  "feature importance",
+  "predictive accuracy",
+  "clinical decision-making",
+  "preventive cardiology",
+  "AI in healthcare"
+]
+```</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. It successfully captures the main topics across multiple dimensions (algorithms, methods, data types, evaluation techniques, and applications). The scoping is generally appropriate and well-balanced. However, there is a minor gap in completeness - 'high-risk patients' or 'high-risk patient identification' is explicitly discussed as a core outcome of the study and warrants inclusion. The inclusion of 'AI in healthcare' is slightly redundant given the more specific topics already present, though it does represent a reasonable high-level topic. These are minor deficiencies that don't violate mandatory requirements.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

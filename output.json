@@ -1,0 +1,71 @@
+[
+  {
+    "output": "```json\n[\n  \"wetland restoration\",\n  \"market-based conservation\",\n  \"carbon sequestration\",\n  \"climate change mitigation\",\n  \"ecosystem services\",\n  \"water purification\",\n  \"flood regulation\",\n  \"carbon credits\",\n  \"carbon markets\",\n  \"rural economic development\",\n  \"farmer participation\",\n  \"wetland management\",\n  \"mitigation banking\",\n  \"carbon accounting\",\n  \"regulatory frameworks\",\n  \"agricultural watersheds\",\n  \"nature-based solutions\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "The integration of wetland restoration with market-based conservation mechanisms presents novel pathways for addressing both ecological degradation and rural economic development. Restored wetlands sequester carbon at rates of 1.5 tonnes per hectare annually, contributing substantially to climate change mitigation targets, while simultaneously providing ecosystem services valued at $8,000-$15,000 per hectare per year through water purification and flood regulation. Economic modeling demonstrates that wetland carbon credits, trading at $20-$30 per tonne in emerging carbon markets, generate sufficient revenue streams to incentivize farmer participation, creating 2.3 jobs per 100 hectares in wetland management and monitoring. However, regulatory frameworks governing wetland mitigation banking and carbon accounting standards remain fragmented across jurisdictions, creating uncertainty for investors and limiting scalability of these nature-based solutions in agricultural watersheds."
+      },
+      "solution_criteria": [
+        "Identifies and separates at least three distinct disciplinary topics (e.g., ecology, economics, policy/regulation)",
+        "Captures both natural science and social science domains present in the passage",
+        "Returns topics as a valid JSON array of strings"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with an interdisciplinary passage containing mixed topics (e.g., environmental science + economics) to verify the prompt can identify and separate distinct subject areas"
+    },
+    "score": 10,
+    "reasoning": "The solution fully satisfies all mandatory requirements: it contains a valid JSON array of strings, each entry is a clean topic without commentary, and the response is only the JSON array. It exceeds the secondary criteria by identifying clear topics from three distinct disciplinary domains (ecology, economics, and policy/regulation) and capturing both natural and social science content. The extraction is thorough and accurate to the passage content. The minor redundancies noted do not constitute failures of the stated criteria, as the task does not explicitly require de-duplication of related concepts."
+  },
+  {
+    "output": "```json\n{\n  \"topics\": [\n    \"CRISPR-Cas9 gene editing\",\n    \"Autosomal recessive disorders\",\n    \"RNA-guided endonuclease\",\n    \"Off-target effects\",\n    \"High-fidelity Cas9 variants\",\n    \"Single guide RNA (sgRNA) design\",\n    \"Multiplex editing\",\n    \"Allelic heterogeneity\",\n    \"Induced pluripotent stem cells (iPSCs)\",\n    \"Transcriptomic profiling\",\n    \"Functional assays\",\n    \"Base editors\",\n    \"Double-strand breaks\",\n    \"C-to-T transversions\",\n    \"A-to-G transversions\",\n    \"Hepatocytes\",\n    \"Adeno-associated viral vectors (AAV)\",\n    \"AAV immunogenicity\",\n    \"Hepatotoxicity\"\n  ]\n}\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in CRISPR-Cas9 gene editing have demonstrated unprecedented efficacy in correcting pathogenic variants associated with autosomal recessive disorders. The mechanism involves RNA-guided endonuclease activity targeting specific genomic loci, with off-target effects mitigated through high-fidelity Cas9 variants and optimized sgRNA design. Multiplex editing strategies employing dual guide RNAs have achieved simultaneous correction of allelic heterogeneity in patient-derived induced pluripotent stem cells (iPSCs), with subsequent phenotypic rescue verified through transcriptomic profiling and functional assays. Integration of base editors circumvents double-strand break formation, enabling precise C-to-T and A-to-G transversions in non-dividing hepatocytes via adeno-associated viral vectors, though immunogenicity of AAV capsid proteins and hepatotoxicity remain critical translational barriers."
+      },
+      "solution_criteria": [
+        "Extracts specialized genomics and molecular biology terminology as valid topics (e.g., CRISPR-Cas9, gene editing, autosomal recessive disorders, iPSCs, base editors)",
+        "Identifies technical jargon and domain-specific concepts as distinct topics (e.g., off-target effects, sgRNA design, transcriptomic profiling, adeno-associated viral vectors)",
+        "Returns output as a JSON array of strings",
+        "Does not exclude topics merely because they contain complex scientific language"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with highly technical jargon-heavy text from a specialized field (e.g., quantum physics or genomics) to determine if the prompt accurately recognizes domain-specific terminology as valid topics"
+    },
+    "score": 7,
+    "reasoning": "The solution meets all mandatory requirements: it contains a valid JSON array of strings, each string is a topic without extra commentary, and the response is JSON only. The secondary criteria are largely satisfied - the solution appropriately extracts specialized genomics terminology and technical jargon without exclusion based on complexity. However, the extraction is not exhaustive; several concepts mentioned in the text are omitted (pathogenic variants, genomic loci, phenotypic rescue, dual guide RNAs). While the solution captures the major topics effectively, the incompleteness prevents a higher score despite meeting all mandatory requirements."
+  },
+  {
+    "output": "```json\n[\n  \"cognitive linguistics\",\n  \"metaphorical language processing\",\n  \"neural substrates\",\n  \"literal comprehension\",\n  \"figurative speech\",\n  \"conceptual metaphor theory\",\n  \"abstract domains\",\n  \"concrete domains\",\n  \"neuroimaging\",\n  \"cross-linguistic studies\",\n  \"human cognition\",\n  \"evolutionary constraints\",\n  \"emotional language\",\n  \"language universals\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "Recent advances in cognitive linguistics have demonstrated that metaphorical language processing involves the same neural substrates as literal comprehension, challenging the traditional view that figurative speech requires a separate interpretive mechanism. When speakers describe emotions as physical sensations\u2014'I was burning with anger' or 'grief weighed heavily on me'\u2014neuroimaging reveals activation patterns indistinguishable from those observed during discussions of actual temperature or mass. This empirical finding suggests that conceptual metaphor theory, which posits that abstract domains are systematically structured through mappings onto concrete domains, may reflect fundamental properties of human cognition rather than merely stylistic conventions. Furthermore, cross-linguistic studies reveal that these metaphorical patterns show remarkable consistency across typologically diverse languages, implying evolutionary constraints on how humans conceptualize and communicate abstract phenomena."
+      },
+      "solution_criteria": [
+        "Extracts explicit topics (e.g., 'cognitive linguistics', 'metaphorical language', 'neuroimaging')",
+        "Identifies implicit underlying themes (e.g., 'mind-body relationship', 'universal human cognition', 'embodied cognition')",
+        "Distinguishes between surface-level concepts and deeper theoretical frameworks being discussed"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with a passage containing implicit vs. explicit topics to assess whether the prompt extracts only surface-level topics or also identifies underlying themes and concepts"
+    },
+    "score": 7,
+    "reasoning": "The solution successfully meets all mandatory requirements with a properly formatted JSON array of clean topic strings. It demonstrates strong performance on explicit topic extraction and captures several implicit themes like 'human cognition' and 'evolutionary constraints'. However, the solution falls short on the secondary criteria by missing some deeper theoretical frameworks that are central to the passage. The passage fundamentally discusses how metaphorical processing reveals embodied cognition and the neural basis of language understanding, yet these frameworks are not captured. While 'neural substrates' is present, the broader implicit theme of embodied cognition\u2014essential to understanding the passage's argument\u2014is absent. The inclusion of 'emotional language' is minor and somewhat tangential. These deficiencies prevent a higher score, though the solution remains competent overall."
+  },
+  {
+    "output": "```json\n[\n  \"machine learning algorithms\",\n  \"cardiovascular disease risk prediction\",\n  \"logistic regression\",\n  \"random forests\",\n  \"neural networks\",\n  \"ensemble methods\",\n  \"patient risk stratification\",\n  \"genomic data integration\",\n  \"clinical variables\",\n  \"model interpretability\",\n  \"SHAP analysis\",\n  \"feature importance\",\n  \"predictive accuracy\",\n  \"clinical decision-making\",\n  \"preventive cardiology\",\n  \"AI in healthcare\"\n]\n```",
+    "test_case": {
+      "prompt_inputs": {
+        "content": "This study examines the efficacy of machine learning algorithms in predicting cardiovascular disease risk. We analyzed 15,000 patient records using logistic regression, random forests, and neural network models. Our results demonstrate that ensemble methods achieved 94% accuracy in identifying high-risk patients. Furthermore, we integrated genomic data with clinical variables, which improved predictive performance by 12%. The interpretability of model predictions was enhanced through SHAP analysis, revealing that age, cholesterol levels, and smoking status were the most influential features. These findings suggest that AI-driven risk stratification could significantly improve clinical decision-making and resource allocation in preventive cardiology."
+      },
+      "solution_criteria": [
+        "Extracts all major topics discussed in the passage as distinct items",
+        "Topics are appropriately scoped (neither overly granular nor overly broad)",
+        "Output is valid JSON array of strings with no missing or duplicate entries"
+      ],
+      "task_description": "Extract topics out of a passage of text from a scholarly article into a JSON array of strings",
+      "scenario": "Testing with a short, focused passage versus a longer multi-paragraph excerpt to evaluate how the prompt handles scope and whether output quality/quantity scales appropriately with input length"
+    },
+    "score": 8,
+    "reasoning": "The solution meets all mandatory requirements: it is a valid JSON array of strings containing topics from the passage with no extra commentary. It successfully captures the main topics across multiple dimensions (algorithms, methods, data types, evaluation techniques, and applications). The scoping is generally appropriate and well-balanced. However, there is a minor gap in completeness - 'high-risk patients' or 'high-risk patient identification' is explicitly discussed as a core outcome of the study and warrants inclusion. The inclusion of 'AI in healthcare' is slightly redundant given the more specific topics already present, though it does represent a reasonable high-level topic. These are minor deficiencies that don't violate mandatory requirements."
+  }
+]

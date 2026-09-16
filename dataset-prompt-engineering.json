@@ -1,0 +1,18 @@
+[
+  {
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "68 kg",
+      "goal": "Marathon training with 4000+ daily calorie intake for carbohydrate loading and recovery",
+      "restrictions": "No dairy due to lactose intolerance"
+    },
+    "solution_criteria": [
+      "Meal plan totals 4000+ calories with macronutrient emphasis on carbohydrates (55-60% of total calories)",
+      "Includes pre-workout, during-workout, and post-workout nutrition with specific timing recommendations",
+      "All meals and snacks are dairy-free and suitable for single-serving portions",
+      "Compact format with clear meal descriptions that can be prepared and consumed in one day"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring 4000+ daily calories with emphasis on carbohydrate loading and recovery nutrition, including specific timing for pre/during/post-workout meals"
+  }
+]
